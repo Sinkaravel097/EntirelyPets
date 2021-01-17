@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="57079" started-at="2021-01-17T05:49:11Z" finished-at="2021-01-17T05:50:08Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="57079" started-at="2021-01-17T05:49:11Z" finished-at="2021-01-17T05:50:08Z">
+      <class name="org.executable.EntirelyPets">
+        <test-method status="PASS" signature="launchBrowser()[pri:0, instance:org.executable.EntirelyPets@28d25987]" name="launchBrowser" is-config="true" duration-ms="4103" started-at="2021-01-17T05:49:11Z" finished-at="2021-01-17T05:49:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method status="PASS" signature="tc1()[pri:0, instance:org.executable.EntirelyPets@28d25987]" name="tc1" duration-ms="25844" started-at="2021-01-17T05:49:15Z" finished-at="2021-01-17T05:49:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc1 -->
+        <test-method status="PASS" signature="tc2()[pri:0, instance:org.executable.EntirelyPets@28d25987]" name="tc2" duration-ms="20473" started-at="2021-01-17T05:49:41Z" finished-at="2021-01-17T05:50:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc2 -->
+        <test-method status="PASS" signature="tc3()[pri:0, instance:org.executable.EntirelyPets@28d25987]" name="tc3" duration-ms="6626" started-at="2021-01-17T05:50:02Z" finished-at="2021-01-17T05:50:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tc3 -->
+      </class> <!-- org.executable.EntirelyPets -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
