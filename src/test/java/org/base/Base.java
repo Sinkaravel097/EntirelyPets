@@ -1,12 +1,22 @@
 package org.base;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.text.Element;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -135,6 +145,38 @@ public class Base {
 	public static void selectVisibleText(WebElement element, String text) {
 		s = new Select(element);
 		s.selectByVisibleText(text);
+	}
+	
+	public static String readExcel(int particularRow, int particularCellFromRow) throws IOException {
+
+		File f = new File("E:\\Selenium Practical\\EntirelyPets\\ExcelSheet\\EntirelyPets.xlsx");
+
+		FileInputStream fis = new FileInputStream(f);
+
+		Workbook wb = new XSSFWorkbook(fis);
+
+		Sheet sheet = wb.getSheet("Entirelypets");
+
+		Row row = sheet.getRow(particularRow);
+
+		Cell cell = row.getCell(particularCellFromRow);
+		
+		int cellType = cell.getCellType();
+
+		String value = " ";
+
+		if (cellType == 1) {
+			value = cell.getStringCellValue();
+		} else if (DateUtil.isCellDateFormatted(cell)) {
+			Date dateCellValue = cell.getDateCellValue();
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
+			value = sdf.format(dateCellValue);
+		} else {
+			double numericCellValue = cell.getNumericCellValue();
+			long l = (long) numericCellValue;
+			value = String.valueOf(l);
+		}
+		return value;
 	}
 	
 

@@ -1,9 +1,8 @@
-package org.executable;
+package org.datadriven;
 
 import java.io.IOException;
 
 import org.base.Base;
-import org.openqa.selenium.interactions.Actions;
 import org.pojo.AddCartPojo;
 import org.pojo.CheckoutPOJO;
 import org.pojo.Dogs_Category_POJO;
@@ -14,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class EntirelyPets extends Base {
 
+
 	@BeforeClass
 	private void launchBrowser() {
 		chrome();
@@ -21,7 +21,7 @@ public class EntirelyPets extends Base {
 
 	// LOGIN FUNCTIONS
 	@Test
-	private void tc1() throws InterruptedException {
+	private void tc1() throws InterruptedException, IOException {
 		
 		launchUrl("https://www.entirelypets.com/");
 		maxWindow();
@@ -31,8 +31,8 @@ public class EntirelyPets extends Base {
 		clickAny(h.getSignIn());
 		clickAny(h.getClickSignIn());
 		scrollUpAndDown(h.getScroll());
-		sendText(h.getEmail(), "vishal30071997@gmail.com");
-		sendText(h.getPassword(), "Vishal labrador");
+		sendText(h.getEmail(), readExcel(2, 0));
+		sendText(h.getPassword(), readExcel(2, 1));
 		clickAny(h.getLogin());
 		
 	}
@@ -60,27 +60,29 @@ public class EntirelyPets extends Base {
 	
 	// CHECKOUT FUNCIONS
 	@Test
-	private void tc3() {
+	private void tc3() throws IOException {
 		
 		implicitWait();
 		CheckoutPOJO c = new CheckoutPOJO();
 		clickAny(c.getCheckout());
-		sendText(c.getFirstName(), "Vishal");
-		sendText(c.getLastName(), "S");
-		sendText(c.getAddress(), "Grandview");
-		sendText(c.getAppartment(), "Sigaran's Home");
-		sendText(c.getCity(), "Columbus");
-		selectVisibleText(c.getState(), "Ohio");
-		sendText(c.getZip(), "43212");
-		sendText(c.getPhone(), "+1 92738922918");
-		selectVisibleText(c.getCountry(), "United States");
+		sendText(c.getFirstName(), readExcel(2, 2));
+		sendText(c.getLastName(), readExcel(2, 3));
+		sendText(c.getAddress(), readExcel(2, 4));
+		sendText(c.getAppartment(), readExcel(2, 5));
+		sendText(c.getCity(), readExcel(2, 6));
+		selectVisibleText(c.getState(), readExcel(2, 7));
+		sendText(c.getZip(), readExcel(2, 8));
+		sendText(c.getPhone(), readExcel(2, 9));
+		selectVisibleText(c.getCountry(), readExcel(2, 10));
 		scrollUpAndDown(c.getScrollToPay());
-		sendText(c.getCardNum(), "0000000000000000");
-		selectVisibleText(c.getExpMonth(), "Jul (7)");
-		selectVisibleText(c.getExpYear(), "2024");
-		sendText(c.getCvv(), "000");
+		sendText(c.getCardNum(), readExcel(2, 11));
+		selectVisibleText(c.getExpMonth(), readExcel(2, 12));
+		selectVisibleText(c.getExpYear(), readExcel(2, 13));
+		sendText(c.getCvv(), readExcel(2, 14));
 		scrollUpAndDown(c.getCont());
 		clickAny(c.getCont());
 	}
+
+
 
 }
